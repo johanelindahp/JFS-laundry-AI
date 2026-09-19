@@ -4,6 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#0f172a">
+<link rel="manifest" href="./manifest.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <title>Keuangan Pintar — JFS AI</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
@@ -147,5 +150,6 @@ let entryTypeInput=document.getElementById("entryType"),entryDate=document.getEl
 sb.auth.onAuthStateChange((event,session)=>{if(session)showApp(session.user)});
 (async()=>{const {data}=await sb.auth.getSession();if(data.session)showApp(data.session.user);else setAuthMode("login");updateScopeUI()})();
 </script>
+<script>if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}))}</script>
 </body>
 </html>
